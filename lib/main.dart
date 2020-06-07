@@ -19,10 +19,10 @@ class _MyCalculatorState extends State<MyCalculator> {
 
   buttonPressed(String btnText) {
     if (btnText == "CLEAR") {
-      String _output = "0";
-      double num1 = 0.0;
-      double num2 = 0.0;
-      String operand = "";
+      _output = "0";
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = "";
     } else if (btnText == "+" ||
         btnText == "-" ||
         btnText == "*" ||
@@ -52,7 +52,19 @@ class _MyCalculatorState extends State<MyCalculator> {
       if (operand == "/") {
         _output = (num1 / num2).toString();
       }
+
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = "";
+    } else {
+      _output = _output + btnText;
     }
+
+    print(_output);
+
+    setState(() {
+      output = double.parse(_output).toStringAsFixed(2);
+    });
   }
 
   Widget buildButton(String buttonText) {

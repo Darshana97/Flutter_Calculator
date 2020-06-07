@@ -10,6 +10,8 @@ class MyCalculator extends StatefulWidget {
 }
 
 class _MyCalculatorState extends State<MyCalculator> {
+  String output = "0";
+
   Widget buildButton(String buttonText) {
     return Expanded(
       child: OutlineButton(
@@ -36,11 +38,12 @@ class _MyCalculatorState extends State<MyCalculator> {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(vertical: 24.0,horizontal: 12.0),
+                alignment: Alignment.centerRight,
+                padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
                 child: Text(
-              "0",
-              style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
-            )),
+                  output,
+                  style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
+                )),
             Expanded(child: Divider()),
             Column(
               children: <Widget>[

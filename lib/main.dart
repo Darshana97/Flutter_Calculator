@@ -10,6 +10,20 @@ class MyCalculator extends StatefulWidget {
 }
 
 class _MyCalculatorState extends State<MyCalculator> {
+  Widget buildButton(String buttonText) {
+    return Expanded(
+      child: OutlineButton(
+        padding: EdgeInsets.all(24.0),
+        onPressed: () {},
+//        color: Colors.redAccent,
+        child: Text(
+          buttonText,
+          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,39 +35,51 @@ class _MyCalculatorState extends State<MyCalculator> {
       body: Container(
         child: Column(
           children: <Widget>[
-            Text("0"),
+            Container(
+                child: Text(
+              "0",
+              style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
+            )),
             Expanded(child: Divider()),
-            Row(
+            Column(
               children: <Widget>[
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {},
-                    color: Colors.redAccent,
-                    child: Text(
-                      "1",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                Row(
+                  children: <Widget>[
+                    buildButton("7"),
+                    buildButton("8"),
+                    buildButton("9"),
+                    buildButton("/")
+                  ],
                 ),
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {},
-                    color: Colors.redAccent,
-                    child: Text(
-                      "1",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                Row(
+                  children: <Widget>[
+                    buildButton("4"),
+                    buildButton("5"),
+                    buildButton("6"),
+                    buildButton("*")
+                  ],
                 ),
-                Expanded(
-                  child: MaterialButton(
-                    onPressed: () {},
-                    color: Colors.redAccent,
-                    child: Text(
-                      "1",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                Row(
+                  children: <Widget>[
+                    buildButton("1"),
+                    buildButton("2"),
+                    buildButton("3"),
+                    buildButton("-")
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    buildButton("."),
+                    buildButton("0"),
+                    buildButton("00"),
+                    buildButton("+")
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    buildButton("CLEAR"),
+                    buildButton("="),
+                  ],
                 ),
               ],
             )

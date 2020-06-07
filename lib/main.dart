@@ -36,6 +36,7 @@ class _MyCalculatorState extends State<MyCalculator> {
         child: Column(
           children: <Widget>[
             Container(
+              padding: EdgeInsets.symmetric(vertical: 24.0,horizontal: 12.0),
                 child: Text(
               "0",
               style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),

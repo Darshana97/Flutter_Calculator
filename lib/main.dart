@@ -12,11 +12,44 @@ class MyCalculator extends StatefulWidget {
 class _MyCalculatorState extends State<MyCalculator> {
   String output = "0";
 
+  String _output = "0";
+  double num1 = 0.0;
+  double num2 = 0.0;
+  String operand = "";
+
+  buttonPressed(String btnText) {
+    if (btnText == "CLEAR") {
+      String _output = "0";
+      double num1 = 0.0;
+      double num2 = 0.0;
+      String operand = "";
+    } else if (btnText == "+" ||
+        btnText == "-" ||
+        btnText == "*" ||
+        btnText == "/") {
+      num1 = double.parse(output);
+      operand = btnText;
+      _output = "0";
+    } else if (btnText == ".") {
+
+      if (_output.contains(".")) {
+        print("Aleaready contains a decimals");
+        return;
+      } else {
+        _output = _output + btnText;
+      }
+    }else if(btnText == "="){
+
+    }
+  }
+
   Widget buildButton(String buttonText) {
     return Expanded(
       child: OutlineButton(
         padding: EdgeInsets.all(24.0),
-        onPressed: () {},
+        onPressed: () {
+          buttonPressed(buttonText);
+        },
 //        color: Colors.redAccent,
         child: Text(
           buttonText,

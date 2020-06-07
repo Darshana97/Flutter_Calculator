@@ -31,15 +31,27 @@ class _MyCalculatorState extends State<MyCalculator> {
       operand = btnText;
       _output = "0";
     } else if (btnText == ".") {
-
       if (_output.contains(".")) {
         print("Aleaready contains a decimals");
         return;
       } else {
         _output = _output + btnText;
       }
-    }else if(btnText == "="){
+    } else if (btnText == "=") {
+      num2 = double.parse(output);
 
+      if (operand == "+") {
+        _output = (num1 + num2).toString();
+      }
+      if (operand == "-") {
+        _output = (num1 - num2).toString();
+      }
+      if (operand == "*") {
+        _output = (num1 * num2).toString();
+      }
+      if (operand == "/") {
+        _output = (num1 / num2).toString();
+      }
     }
   }
 
